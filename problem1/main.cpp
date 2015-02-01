@@ -15,27 +15,57 @@
 
 #include <iostream>
 
+//Solution to Problem 1
+int calcMultiSum(int var1, int var2, int max){
+    int tot = 0, tot3 = 0, tot2 = 0, tot1 = 0;
+    int var3 = var1*var2;
+    for(int i = 1; i <= max; i++){
+        if(i%var3 == 0){
+            tot3 += i;
+        }
+        else if(i%var1 == 0){
+            tot2 += i;
+        }
+        else if(i%var2 == 0){
+            tot1 += i;
+        }
+    }
+    tot = tot2 + tot1 + tot3;
+    std::cout << "Run Total:  " << tot << "\n";
+    return 0;
+}
+
+//tester function to get multiples
+int getMultiples(int var, int max){
+    int tot = 0, num = 0;
+    for(int i = 1; i <= max; i++){
+        num = i*var;
+        if(num <= max){
+            tot += num;
+        }
+    }
+    std::cout << "\nTotal of multiples of " << var << ": " << tot;
+    return tot;
+    return 0;
+}
+
+//tester function to calculate sum
+int testSum(int var1, int var2, int max){
+    int var3 = 0;
+    var3 = var1 * var2;
+    int total = getMultiples(var1, max) + getMultiples(var2, max) - getMultiples(var3, max);
+    std::cout <<"\nTest Total: " << total;
+    return 0;
+}
+
 int main(int argc, const char * argv[]) {
-    int sumThrees, sumFives, total, threes, fives;
-    for(int i = 1; i <= 10; i++){
-        //Figures out the multiples of 3
-        threes = i*3;
-        std::cout << threes << " ";
-        if(threes <= 10){
-            sumThrees += threes;
-        }
-    }
-    std::cout << "\nSum of Threes: " << sumThrees << "\n";
-    for(int i = 1; i <= 10; i++){
-        //Figures out the multiples of 5
-        fives = i*5;
-        std::cout << fives << " ";
-        if(fives <= 10){
-            sumFives += fives;
-        }
-    }
-    std::cout << "\nSum of Fives: " << sumFives << "\n";
-    total = sumFives + sumThrees;
-    return total;
+    int var1 = 3;
+    int var2 = 5;
+    int maxVar = 1000;
+    testSum(var1, var2, maxVar);
+    std::cout << "\n";
+    
+    calcMultiSum(var1,var2,maxVar);
+
     return 0;
 }
