@@ -19,7 +19,7 @@
 int calcMultiSum(int var1, int var2, int max){
     int tot = 0, tot3 = 0, tot2 = 0, tot1 = 0;
     int var3 = var1*var2;
-    for(int i = 1; i <= max; i++){
+    for(int i = 1; i < max; i++){
         if(i%var3 == 0){
             tot3 += i;
         }
@@ -38,9 +38,9 @@ int calcMultiSum(int var1, int var2, int max){
 //tester function to get multiples
 int getMultiples(int var, int max){
     int tot = 0, num = 0;
-    for(int i = 1; i <= max; i++){
+    for(int i = 1; i < max; i++){
         num = i*var;
-        if(num <= max){
+        if(num < max){
             tot += num;
         }
     }
