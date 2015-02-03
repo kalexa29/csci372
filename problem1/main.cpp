@@ -23,10 +23,10 @@ int calcMultiSum(int var1, int var2, int max){
         if(i%var3 == 0){
             tot3 += i;
         }
-        else if(i%var1 == 0){
+        else if(i%var2 == 0){
             tot2 += i;
         }
-        else if(i%var2 == 0){
+        else if(i%var1 == 0){
             tot1 += i;
         }
     }
@@ -41,10 +41,10 @@ int getMultiples(int var, int max){
     for(int i = 1; i < max; i++){
         num = i*var;
         if(num < max){
+            //std::cout << num << " ";
             tot += num;
         }
     }
-    std::cout << "\nTotal of multiples of " << var << ": " << tot;
     return tot;
     return 0;
 }
@@ -64,8 +64,10 @@ int main(int argc, const char * argv[]) {
     int maxVar = 1000;
     testSum(var1, var2, maxVar);
     std::cout << "\n";
-    
     calcMultiSum(var1,var2,maxVar);
-
+    
+    testSum(var1, var2, 10);
+    std::cout << "\n";
+    calcMultiSum(var1, var2, 10);
     return 0;
 }
