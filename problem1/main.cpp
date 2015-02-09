@@ -35,6 +35,20 @@ int calcMultiSum(int var1, int var2, int max){
     return 0;
 }
 
+//O(1)
+/*
+ 3 + 6 + 9 + ... + 3n
+ 5 + 10 + ... + 5n
+ 
+ n = max/3
+ m = max/5
+ p = max/15
+ 
+ Sum = Sum3i + Sum5i - Sum15i
+ Sum = 3Sumi + 5Sumi - 15Sumi
+ Sum = 3(n(n+1)/2) + 5(m(m+1)/2) - 15((p+1)/2)
+ */
+
 //tester function to get multiples
 int getMultiples(int var, int max){
     int tot = 0, num = 0;
